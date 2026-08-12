@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HANNAM 점장 마감근무 및 Closing Audit 운영안</title>
+<style>
+:root{
+  --navy:#17324d; --blue:#2e628d; --bg:#f5f7f9; --line:#dce5eb;
+  --text:#1f2937; --muted:#667085; --green:#2f855a; --amber:#b7791f; --red:#b42318; --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.6}
+.sticky{position:sticky;top:0;z-index:50;background:#17324df8;color:#fff;box-shadow:0 2px 12px #0002}
+.nav{max-width:1160px;margin:auto;padding:10px 14px;display:flex;gap:8px;align-items:center;overflow-x:auto}
+.brand{font-weight:900;white-space:nowrap;margin-right:auto}
+.nav a,.nav button{border:0;text-decoration:none;color:#fff;background:#ffffff14;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:800;white-space:nowrap}
+.nav button{background:#fff;color:var(--navy);cursor:pointer}
+.wrap{max-width:1160px;margin:22px auto;padding:0 16px 54px}
+.hero{background:linear-gradient(135deg,#17324d,#265579);color:#fff;border-radius:18px;padding:30px;box-shadow:0 12px 30px #17324d2b}
+.hero h1{margin:0 0 8px;font-size:32px;line-height:1.2}.hero p{margin:0;color:#dbe7f0}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{background:#ffffff1f;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800}
+section{margin-top:25px} h2{margin:0 0 10px;color:var(--navy);font-size:22px} h3{margin:18px 0 8px;color:var(--navy);font-size:17px}
+.lead{margin:0 0 12px;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:10px 0;box-shadow:0 2px 8px #17324d0a}
+.callout{border-left:5px solid var(--blue);background:#f8fbfd}.warn{border-left-color:var(--amber);background:#fffaf0}.red{border-left-color:var(--red);background:#fff5f5}.green{border-left-color:var(--green);background:#f3fbf6}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.kpi{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px}.kpi strong{display:block;font-size:24px;color:var(--navy)}.kpi span{font-size:12px;color:var(--muted)}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}th{background:#eef4f8;color:var(--navy);text-align:left;font-weight:900}tr:last-child td{border-bottom:0}
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.check b{color:var(--navy)}
+.badge{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:900}.normal{background:#edf8f1;color:var(--green)}.improve{background:#fff5df;color:#98600a}.immediate{background:#fff0ee;color:var(--red)}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}.flow div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-size:12px;font-weight:800;color:var(--navy)}
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.role{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.role h3{margin:0 0 7px}.role p{font-size:12px;color:var(--muted);margin:0}
+.timeline{display:grid;grid-template-columns:1fr 80px 1fr;gap:12px;align-items:stretch}.phase{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.arrow{display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:900;font-size:24px}
+ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){.grid4,.check-grid,.role-grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr 1fr}.timeline{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.hero h1{font-size:27px}}
+@media(max-width:520px){.grid4,.check-grid,.role-grid,.flow{grid-template-columns:1fr}.wrap{padding:0 12px 40px;margin-top:14px}.hero{padding:20px}.hero h1{font-size:24px}.card{padding:13px}}
+@media print{@page{size:A4;margin:12mm}body{background:#fff}.sticky{display:none!important}.wrap{max-width:none;margin:0;padding:0}.hero{box-shadow:none;border-radius:0;padding:16px}.card,.check,.role,.phase,.table-wrap{box-shadow:none;break-inside:avoid}table{min-width:0}}
+</style>
+</head>
+<body>
+
+<div class="sticky">
+  <div class="nav">
+    <div class="brand">HANNAM • Closing Audit 운영안</div>
+    <a href="#purpose">목적</a>
+    <a href="#phase1">1차 7주</a>
+    <a href="#check">점검기준</a>
+    <a href="#report">보고</a>
+    <a href="#phase2">7주 이후</a>
+    <a href="#roles">역할</a>
+    <a href="#analysis">관리·분석</a>
+    <button onclick="window.print()">인쇄 / PDF</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>점장 마감근무 및 Closing Audit 운영 정책</h1>
+    <p>1차 7주간 점장님이 직접 현장을 진단하고, 이후에는 직원 정기 Audit + 지점장 관리자 체계로 전환하는 운영안</p>
+    <div class="pills">
+      <span class="pill">1차 7주: 점장 직접 Audit</span>
+      <span class="pill">2차: 직원 정기 Audit</span>
+      <span class="pill">지점장: 지점 관리자</span>
+      <span class="pill">본사: 전 지점 통합관리</span>
+    </div>
+  </div>
+
+  <section id="purpose">
+    <h2>1. 운영 목적</h2>
+    <div class="card callout">
+      점장님들이 평소 주간근무 위주로 관리하면서 직접 확인하기 어려운 <b>저녁 피크시간부터 실제 Closing까지의 매장 운영상태를 직접 확인</b>하고,
+      고객서비스·인력운영·상품관리·위생·시설·Safety·Closing 과정에서 발생하는 문제를 발견하여 개선하기 위한 운영안임.
+    </div>
+    <div class="card green">
+      운영의 핵심은 <b>직원 개인을 평가하는 것이 아니라 “매장 운영 프로세스”를 점검하는 것</b>임.
+      현장의 문제를 찾고 개선하며, 장기적으로 전 지점의 마감 운영수준을 표준화하는 데 목적이 있음.
+    </div>
+  </section>
+
+  <section id="phase1">
+    <h2>2. 1차 운영 — 점장 직접 마감 Audit (7주)</h2>
+    <div class="grid4">
+      <div class="kpi"><strong>주 1회</strong><span>점장 마감근무</span></div>
+      <div class="kpi"><strong>7주</strong><span>1차 진단기간</span></div>
+      <div class="kpi"><strong>월~일</strong><span>전 요일 1회씩</span></div>
+      <div class="kpi"><strong>2PM~Close</strong><span>권장 Shift</span></div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>실제 운영방법</th></tr></thead>
+        <tbody>
+          <tr><td><b>대상</b></td><td>Burnaby / Surrey / Langley / Metrotown / Robson / Yaletown 각 지점장님</td></tr>
+          <tr><td><b>빈도</b></td><td>주 1회 마감근무 및 운영 Audit 실시</td></tr>
+          <tr><td><b>1차 운영기간</b></td><td>7주간 월~일 전 요일을 각각 한 번씩 직접 경험</td></tr>
+          <tr><td><b>근무형태</b></td><td>오전근무 후 연장근무가 아니라 오후~Closing Shift로 근무시간 조정</td></tr>
+          <tr><td><b>수요일</b></td><td>기존 공통 휴무일이라도 Audit에서 제외하지 않음. 수요일 근무 시 같은 주 다른 날을 대체휴무로 운영</td></tr>
+          <tr><td><b>목적</b></td><td>지점장님이 직접 마감시간대 운영을 경험하고 향후 관리해야 할 기준과 실제 문제를 파악</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card warn">
+      1차 7주는 단순히 “점장님이 늦게까지 근무”하는 제도가 아니라, <b>향후 전사 Closing Audit 체계를 만들기 위한 진단기간</b>으로 운영함.
+    </div>
+  </section>
+
+  <section id="check">
+    <h2>3. 전 지점 공통 점검기준</h2>
+    <p class="lead">6개 지점 모두 동일한 기준으로 점검하여 지점별·요일별 비교가 가능하도록 함.</p>
+    <div class="check-grid">
+      <div class="check"><b>① 고객 운영</b><ul><li>고객응대 및 안내서비스</li><li>계산대 대기·Cashier 배치</li><li>카트·바구니·박스 등 고객동선 방해 여부</li></ul></div>
+      <div class="check"><b>② 상품 운영</b><ul><li>주요상품 결품·보충</li><li>진열·Facing 상태</li><li>가격표·POP 일치</li><li>신선상품 품질</li></ul></div>
+      <div class="check"><b>③ 인력 운영</b><ul><li>고객수·업무량 대비 인력 적정성</li><li>특정부서 업무집중 여부</li><li>과잉 또는 부족 인력 여부</li><li>부서 간 지원·협업</li></ul></div>
+      <div class="check"><b>④ 위생·온도</b><ul><li>매장·작업장 청결</li><li>냉장·냉동·Hot Holding</li><li>Temperature Log</li><li>폐기·보관상태</li></ul></div>
+      <div class="check"><b>⑤ 시설·Safety</b><ul><li>냉장고·냉동고·조명·문·Sink·장비</li><li>누수·파손·알람</li><li>통로적치·미끄럼 등 Safety</li><li>도난 취약구역 관리</li></ul></div>
+      <div class="check"><b>⑥ Closing</b><ul><li>Cash 및 계산대 마감</li><li>상품 보관</li><li>장비 종료·청소</li><li>문단속·보안</li><li>다음날 정상 Open 가능상태 확인</li></ul></div>
+    </div>
+
+    <h3>점검결과 구분</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>구분</th><th>판단기준</th><th>후속조치</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge normal">정상</span></td><td>운영기준에 맞게 정상 수행됨</td><td>확인 완료</td></tr>
+          <tr><td><span class="badge improve">개선필요</span></td><td>즉시 위험은 아니나 반복되거나 개선이 필요한 상태</td><td>원인·담당·Follow-up 관리</td></tr>
+          <tr><td><span class="badge immediate">즉시조치</span></td><td>안전·위생·온도·시설 등 당일 대응이 필요한 상태</td><td>현장에서 우선 조치 후 즉시 보고</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="report">
+    <h2>4. 점검 후 기록 및 Follow-up</h2>
+    <p class="lead">긴 별도 보고서보다는 현장에서 실제 관리할 수 있는 핵심사항만 기록함.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>기록항목</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td><b>주요 발견사항</b></td><td>새롭게 확인한 문제 또는 좋은 운영사례</td></tr>
+          <tr><td><b>즉시 조치사항</b></td><td>현장에서 바로 개선한 사항</td></tr>
+          <tr><td><b>본사 지원 필요사항</b></td><td>시설·인력·HR·IT·디자인·Health 등 지원 요청</td></tr>
+          <tr><td><b>직원 의견</b></td><td>야간 직원의 애로사항 및 개선 아이디어</td></tr>
+          <tr><td><b>미완료 Follow-up</b></td><td>당일 해결되지 않아 담당자·기한 관리가 필요한 사항</td></tr>
+          <tr><td><b>사진</b></td><td>시설·청결·진열 등 필요한 사항은 사진으로 Before / After 관리</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="phase2">
+    <h2>5. 7주 이후 운영체계 전환</h2>
+    <div class="timeline">
+      <div class="phase">
+        <h3>1단계 · 최초 7주</h3>
+        <b>점장 직접 Audit</b>
+        <ul>
+          <li>주 1회 마감근무</li>
+          <li>월~일 모든 요일 직접 경험</li>
+          <li>현장문제·관리기준 파악</li>
+          <li>초기 운영 데이터 축적</li>
+        </ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="phase">
+        <h3>2단계 · 7주 이후</h3>
+        <b>직원 정기 Audit + 점장 관리자</b>
+        <ul>
+          <li>지정 직원이 정기 Audit 수행</li>
+          <li>점장님은 자기 지점 결과 관리</li>
+          <li>본사는 전 지점 통합관리</li>
+          <li>반복문제와 미완료 Follow-up 지속관리</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card callout">
+      7주 이후에는 점장님이 매번 직접 Audit을 수행하는 방식에서 벗어나,
+      <b>직원이 현장 Audit을 수행하고 점장님은 해당 지점의 관리자 역할</b>을 맡는 구조로 전환함.
+    </div>
+  </section>
+
+  <section id="roles">
+    <h2>6. 7주 이후 역할 분담</h2>
+    <div class="role-grid">
+      <div class="role">
+        <h3>본사 관리자</h3>
+        <p>전 6개 지점 결과, 반복문제, 즉시조치, 미완료 Follow-up을 통합 관리하고 지점별·요일별 비교를 진행함.</p>
+      </div>
+      <div class="role">
+        <h3>지점장님</h3>
+        <p>본인 지점의 관리자 역할을 맡아 Audit 제출현황, 개선필요, 즉시조치, 미완료 사항 및 후속조치 완료 여부를 관리함.</p>
+      </div>
+      <div class="role">
+        <h3>Audit 담당 직원</h3>
+        <p>정해진 공통 체크리스트에 따라 현장상태를 확인·기록하고 필요한 경우 메모·사진과 함께 제출함.</p>
+      </div>
+    </div>
+
+    <h3>직원 Audit 운영방식</h3>
+    <div class="card">
+      직원에게 관리자 권한을 부여하지 않고 <b>각 지점별 Audit Code</b>를 통해 점검을 수행하도록 운영함.
+      <div class="flow">
+        <div>지점 코드 입력</div>
+        <div>직원명 입력</div>
+        <div>공통 점검</div>
+        <div>메모·사진</div>
+        <div>제출</div>
+        <div>지점장 검토</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>지점</th><th>직원 입력 방식</th><th>지점장 권한</th></tr></thead>
+        <tbody>
+          <tr><td>Burnaby</td><td>Burnaby Audit Code 입력 후 점검</td><td>Burnaby 결과만 관리자모드에서 확인</td></tr>
+          <tr><td>Surrey</td><td>Surrey Audit Code 입력 후 점검</td><td>Surrey 결과만 관리자모드에서 확인</td></tr>
+          <tr><td>Langley</td><td>Langley Audit Code 입력 후 점검</td><td>Langley 결과만 관리자모드에서 확인</td></tr>
+          <tr><td>Metrotown</td><td>Metrotown Audit Code 입력 후 점검</td><td>Metrotown 결과만 관리자모드에서 확인</td></tr>
+          <tr><td>Robson</td><td>Robson Audit Code 입력 후 점검</td><td>Robson 결과만 관리자모드에서 확인</td></tr>
+          <tr><td>Yaletown</td><td>Yaletown Audit Code 입력 후 점검</td><td>Yaletown 결과만 관리자모드에서 확인</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card warn">
+      직원은 <b>Audit 수행자</b>이며 관리자 권한은 없음.
+      점장님은 자기 지점의 관리자이며, 다른 지점의 내부 Audit 내용은 볼 수 없도록 운영함.
+      본사만 전체 6개 지점을 통합 조회함.
+    </div>
+  </section>
+
+  <section id="analysis">
+    <h2>7. 관리 및 분석 방향</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>관리 관점</th><th>확인내용</th></tr></thead>
+        <tbody>
+          <tr><td><b>지점별</b></td><td>특정 지점에서 반복되는 개선필요·즉시조치 문제</td></tr>
+          <tr><td><b>요일별</b></td><td>월~일 중 특정 요일에 문제 발생이 집중되는지 확인</td></tr>
+          <tr><td><b>항목별</b></td><td>결품·인력배치·청결·온도·Closing 등 반복빈도 확인</td></tr>
+          <tr><td><b>Follow-up</b></td><td>담당자·기한·조치상태·완료 여부 관리</td></tr>
+          <tr><td><b>지점장 관리</b></td><td>자기 지점 Audit 현황·반복이슈·미완료 사항 확인</td></tr>
+          <tr><td><b>본사 관리</b></td><td>6개 지점 비교 및 전사 공통 운영문제 파악</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card red">
+      7주간의 1차 진단 이후에는 단순히 동일한 요일을 계속 순환하는 것이 아니라,
+      누적 결과를 바탕으로 <b>문제가 많이 발생하는 요일·시간대·운영항목에 Audit을 집중</b>하는 방식으로 발전시킴.
+    </div>
+  </section>
+
+  <section>
+    <h2>8. 최종 운영 방향</h2>
+    <div class="card green">
+      <b>점장 직접 진단 → 직원 정기 Audit → 지점장 관리 → 본사 통합관리</b>의 구조로 단계화함.
+      최초 7주는 점장님이 직접 현장을 경험하여 기준을 세우고,
+      이후에는 정기적인 Audit이 지점 운영의 일상적인 관리도구가 되도록 전환하여
+      <b>전 지점의 운영상태를 지속적으로 확인하고 표준화하는 체계</b>로 운영할 예정임.
+    </div>
+  </section>
+
+  <div class="footer">HANNAM SUPERMARKET · Closing Audit Operating Policy · Internal Use</div>
+</div>
+</body>
+</html>
