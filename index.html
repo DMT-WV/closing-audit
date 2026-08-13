@@ -36,6 +36,28 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
 @media(max-width:800px){.grid4,.check-grid,.role-grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr 1fr}.timeline{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.hero h1{font-size:27px}}
 @media(max-width:520px){.grid4,.check-grid,.role-grid,.flow{grid-template-columns:1fr}.wrap{padding:0 12px 40px;margin-top:14px}.hero{padding:20px}.hero h1{font-size:24px}.card{padding:13px}}
 @media print{@page{size:A4;margin:12mm}body{background:#fff}.sticky{display:none!important}.wrap{max-width:none;margin:0;padding:0}.hero{box-shadow:none;border-radius:0;padding:16px}.card,.check,.role,.phase,.table-wrap{box-shadow:none;break-inside:avoid}table{min-width:0}}
+
+.start-banner{margin:16px 0 0;background:#fff;color:var(--navy);border-radius:14px;padding:14px 16px}
+.start-banner strong{font-size:18px}.start-banner span{display:block;color:#566879;font-size:12px;margin-top:3px}
+.week1-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:13px 0}
+.week1-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;position:relative}
+.week1-card .date{font-size:11px;color:var(--muted);font-weight:800}
+.week1-card .store{font-size:18px;font-weight:900;color:var(--navy);margin:4px 0}
+.week1-card .day{display:inline-block;font-size:12px;font-weight:900;padding:4px 8px;border-radius:999px;background:#eef5fb;color:var(--blue)}
+.week1-card.wed{border:2px solid #e0a33b;background:#fffaf0}
+.week1-card.wed:after{content:'대체휴무 필요';position:absolute;right:10px;top:10px;font-size:9px;font-weight:900;color:#98600a}
+.schedule-mobile{display:none}
+@media(max-width:650px){
+ .week1-cards{grid-template-columns:1fr 1fr}
+ .schedule-desktop{display:none}
+ .schedule-mobile{display:block}
+ .sched-week{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;margin:9px 0}
+ .sched-week h3{margin:0 0 8px;font-size:15px}
+ .sched-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid #edf1f4;font-size:12px}
+ .sched-row:first-of-type{border-top:0}
+ .sched-row b{color:var(--navy)}
+}
+
 </style>
 </head>
 <body>
@@ -44,7 +66,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   <div class="nav">
     <div class="brand">HANNAM • Closing Audit 운영안</div>
     <a href="#purpose">목적</a>
-    <a href="#phase1">1차 7주</a>
+    <a href="#start">시작일정</a><a href="#phase1">1차 7주</a>
     <a href="#check">점검기준</a>
     <a href="#report">보고</a>
     <a href="#phase2">7주 이후</a>
@@ -78,8 +100,63 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
     </div>
   </section>
 
-  <section id="phase1">
-    <h2>2. 1차 운영 — 점장 직접 마감 Audit (7주)</h2>
+  
+<section id="start">
+  <h2>2. 다음 주부터 실제 운영 시작</h2>
+  <div class="card callout">
+    <b>1차 Closing Audit은 2026년 8월 17일(월)부터 시작</b>함.
+    첫 7주는 각 점장님이 월~일을 한 번씩 경험하도록 순환하며,
+    <b>수요일 Audit이 배정된 경우에는 해당 주 다른 날을 대체휴무</b>로 지정함.
+  </div>
+
+  <div class="start-banner">
+    <strong>1주차 · 8월 17일(월) ~ 8월 23일(일)</strong>
+    <span>각 지점장님은 아래 지정요일에 오후~Closing Shift로 근무함.</span>
+  </div>
+
+  <div class="week1-cards">
+    <div class="week1-card"><div class="date">8/17</div><div class="store">Burnaby</div><span class="day">월요일</span></div>
+    <div class="week1-card"><div class="date">8/18</div><div class="store">Surrey</div><span class="day">화요일</span></div>
+    <div class="week1-card wed"><div class="date">8/19</div><div class="store">Langley</div><span class="day">수요일</span></div>
+    <div class="week1-card"><div class="date">8/20</div><div class="store">Metrotown</div><span class="day">목요일</span></div>
+    <div class="week1-card"><div class="date">8/21</div><div class="store">Robson</div><span class="day">금요일</span></div>
+    <div class="week1-card"><div class="date">8/22</div><div class="store">Yaletown</div><span class="day">토요일</span></div>
+  </div>
+
+  <div class="card warn">
+    <b>1주차 일요일(8/23)</b>에는 지정 지점이 없음. 6개 지점을 7개 요일에 분산하는 구조이므로 매주 하루는 비어 있으며,
+    7주 전체 Cycle이 끝나면 각 지점장님은 월~일 모든 요일을 정확히 한 번씩 경험하게 됨.
+  </div>
+
+  <h3>7주 전체 실제 일정</h3>
+  <div class="table-wrap schedule-desktop">
+    <table>
+      <thead><tr><th>주차</th><th>기간</th><th>Burnaby</th><th>Surrey</th><th>Langley</th><th>Metrotown</th><th>Robson</th><th>Yaletown</th></tr></thead>
+      <tbody>
+        <tr><td><b>1주차</b></td><td>8/17~8/23</td><td>8/17 월</td><td>8/18 화</td><td><b>8/19 수</b></td><td>8/20 목</td><td>8/21 금</td><td>8/22 토</td></tr>
+        <tr><td><b>2주차</b></td><td>8/24~8/30</td><td>8/25 화</td><td><b>8/26 수</b></td><td>8/27 목</td><td>8/28 금</td><td>8/29 토</td><td>8/30 일</td></tr>
+        <tr><td><b>3주차</b></td><td>8/31~9/6</td><td><b>9/2 수</b></td><td>9/3 목</td><td>9/4 금</td><td>9/5 토</td><td>9/6 일</td><td>8/31 월</td></tr>
+        <tr><td><b>4주차</b></td><td>9/7~9/13</td><td>9/10 목</td><td>9/11 금</td><td>9/12 토</td><td>9/13 일</td><td>9/7 월</td><td>9/8 화</td></tr>
+        <tr><td><b>5주차</b></td><td>9/14~9/20</td><td>9/18 금</td><td>9/19 토</td><td>9/20 일</td><td>9/14 월</td><td>9/15 화</td><td><b>9/16 수</b></td></tr>
+        <tr><td><b>6주차</b></td><td>9/21~9/27</td><td>9/26 토</td><td>9/27 일</td><td>9/21 월</td><td>9/22 화</td><td><b>9/23 수</b></td><td>9/24 목</td></tr>
+        <tr><td><b>7주차</b></td><td>9/28~10/4</td><td>10/4 일</td><td>9/28 월</td><td>9/29 화</td><td><b>9/30 수</b></td><td>10/1 목</td><td>10/2 금</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="schedule-mobile">
+    <div class="sched-week"><h3>1주차 · 8/17~8/23</h3><div class="sched-row"><b>Burnaby</b><span>8/17 월</span></div><div class="sched-row"><b>Surrey</b><span>8/18 화</span></div><div class="sched-row"><b>Langley</b><span>8/19 수 · 대체휴무</span></div><div class="sched-row"><b>Metrotown</b><span>8/20 목</span></div><div class="sched-row"><b>Robson</b><span>8/21 금</span></div><div class="sched-row"><b>Yaletown</b><span>8/22 토</span></div></div>
+    <div class="sched-week"><h3>2주차 · 8/24~8/30</h3><div class="sched-row"><b>Burnaby</b><span>8/25 화</span></div><div class="sched-row"><b>Surrey</b><span>8/26 수 · 대체휴무</span></div><div class="sched-row"><b>Langley</b><span>8/27 목</span></div><div class="sched-row"><b>Metrotown</b><span>8/28 금</span></div><div class="sched-row"><b>Robson</b><span>8/29 토</span></div><div class="sched-row"><b>Yaletown</b><span>8/30 일</span></div></div>
+    <div class="sched-week"><h3>3주차 · 8/31~9/6</h3><div class="sched-row"><b>Burnaby</b><span>9/2 수 · 대체휴무</span></div><div class="sched-row"><b>Surrey</b><span>9/3 목</span></div><div class="sched-row"><b>Langley</b><span>9/4 금</span></div><div class="sched-row"><b>Metrotown</b><span>9/5 토</span></div><div class="sched-row"><b>Robson</b><span>9/6 일</span></div><div class="sched-row"><b>Yaletown</b><span>8/31 월</span></div></div>
+    <div class="sched-week"><h3>4주차 · 9/7~9/13</h3><div class="sched-row"><b>Burnaby</b><span>9/10 목</span></div><div class="sched-row"><b>Surrey</b><span>9/11 금</span></div><div class="sched-row"><b>Langley</b><span>9/12 토</span></div><div class="sched-row"><b>Metrotown</b><span>9/13 일</span></div><div class="sched-row"><b>Robson</b><span>9/7 월</span></div><div class="sched-row"><b>Yaletown</b><span>9/8 화</span></div></div>
+    <div class="sched-week"><h3>5주차 · 9/14~9/20</h3><div class="sched-row"><b>Burnaby</b><span>9/18 금</span></div><div class="sched-row"><b>Surrey</b><span>9/19 토</span></div><div class="sched-row"><b>Langley</b><span>9/20 일</span></div><div class="sched-row"><b>Metrotown</b><span>9/14 월</span></div><div class="sched-row"><b>Robson</b><span>9/15 화</span></div><div class="sched-row"><b>Yaletown</b><span>9/16 수 · 대체휴무</span></div></div>
+    <div class="sched-week"><h3>6주차 · 9/21~9/27</h3><div class="sched-row"><b>Burnaby</b><span>9/26 토</span></div><div class="sched-row"><b>Surrey</b><span>9/27 일</span></div><div class="sched-row"><b>Langley</b><span>9/21 월</span></div><div class="sched-row"><b>Metrotown</b><span>9/22 화</span></div><div class="sched-row"><b>Robson</b><span>9/23 수 · 대체휴무</span></div><div class="sched-row"><b>Yaletown</b><span>9/24 목</span></div></div>
+    <div class="sched-week"><h3>7주차 · 9/28~10/4</h3><div class="sched-row"><b>Burnaby</b><span>10/4 일</span></div><div class="sched-row"><b>Surrey</b><span>9/28 월</span></div><div class="sched-row"><b>Langley</b><span>9/29 화</span></div><div class="sched-row"><b>Metrotown</b><span>9/30 수 · 대체휴무</span></div><div class="sched-row"><b>Robson</b><span>10/1 목</span></div><div class="sched-row"><b>Yaletown</b><span>10/2 금</span></div></div>
+  </div>
+</section>
+
+<section id="phase1">
+    <h2>3. 1차 운영 — 점장 직접 마감 Audit (7주)</h2>
     <div class="grid4">
       <div class="kpi"><strong>주 1회</strong><span>점장 마감근무</span></div>
       <div class="kpi"><strong>7주</strong><span>1차 진단기간</span></div>
@@ -107,7 +184,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   </section>
 
   <section id="check">
-    <h2>3. 전 지점 공통 점검기준</h2>
+    <h2>4. 전 지점 공통 점검기준</h2>
     <p class="lead">6개 지점 모두 동일한 기준으로 점검하여 지점별·요일별 비교가 가능하도록 함.</p>
     <div class="check-grid">
       <div class="check"><b>① 고객 운영</b><ul><li>고객응대 및 안내서비스</li><li>계산대 대기·Cashier 배치</li><li>카트·바구니·박스 등 고객동선 방해 여부</li></ul></div>
@@ -132,7 +209,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   </section>
 
   <section id="report">
-    <h2>4. 점검 후 기록 및 Follow-up</h2>
+    <h2>5. 점검 후 기록 및 Follow-up</h2>
     <p class="lead">긴 별도 보고서보다는 현장에서 실제 관리할 수 있는 핵심사항만 기록함.</p>
     <div class="table-wrap">
       <table>
@@ -150,7 +227,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   </section>
 
   <section id="phase2">
-    <h2>5. 7주 이후 운영체계 전환</h2>
+    <h2>6. 7주 이후 운영체계 전환</h2>
     <div class="timeline">
       <div class="phase">
         <h3>1단계 · 최초 7주</h3>
@@ -182,7 +259,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   </section>
 
   <section id="roles">
-    <h2>6. 7주 이후 역할 분담</h2>
+    <h2>7. 7주 이후 역할 분담</h2>
     <div class="role-grid">
       <div class="role">
         <h3>본사 관리자</h3>
@@ -233,7 +310,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   </section>
 
   <section id="analysis">
-    <h2>7. 관리 및 분석 방향</h2>
+    <h2>8. 관리 및 분석 방향</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>관리 관점</th><th>확인내용</th></tr></thead>
@@ -255,7 +332,7 @@ ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;colo
   </section>
 
   <section>
-    <h2>8. 최종 운영 방향</h2>
+    <h2>9. 최종 운영 방향</h2>
     <div class="card green">
       <b>점장 직접 진단 → 직원 정기 Audit → 지점장 관리 → 본사 통합관리</b>의 구조로 단계화함.
       최초 7주는 점장님이 직접 현장을 경험하여 기준을 세우고,
