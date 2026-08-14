@@ -2,346 +2,124 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HANNAM 점장 마감근무 및 Closing Audit 운영안</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HANNAM Opening & Closing Check-up Pilot</title>
 <style>
-:root{
-  --navy:#17324d; --blue:#2e628d; --bg:#f5f7f9; --line:#dce5eb;
-  --text:#1f2937; --muted:#667085; --green:#2f855a; --amber:#b7791f; --red:#b42318; --white:#fff;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.6}
-.sticky{position:sticky;top:0;z-index:50;background:#17324df8;color:#fff;box-shadow:0 2px 12px #0002}
-.nav{max-width:1160px;margin:auto;padding:10px 14px;display:flex;gap:8px;align-items:center;overflow-x:auto}
-.brand{font-weight:900;white-space:nowrap;margin-right:auto}
-.nav a,.nav button{border:0;text-decoration:none;color:#fff;background:#ffffff14;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:800;white-space:nowrap}
-.nav button{background:#fff;color:var(--navy);cursor:pointer}
-.wrap{max-width:1160px;margin:22px auto;padding:0 16px 54px}
-.hero{background:linear-gradient(135deg,#17324d,#265579);color:#fff;border-radius:18px;padding:30px;box-shadow:0 12px 30px #17324d2b}
-.hero h1{margin:0 0 8px;font-size:32px;line-height:1.2}.hero p{margin:0;color:#dbe7f0}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{background:#ffffff1f;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:800}
-section{margin-top:25px} h2{margin:0 0 10px;color:var(--navy);font-size:22px} h3{margin:18px 0 8px;color:var(--navy);font-size:17px}
-.lead{margin:0 0 12px;color:var(--muted)}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:10px 0;box-shadow:0 2px 8px #17324d0a}
-.callout{border-left:5px solid var(--blue);background:#f8fbfd}.warn{border-left-color:var(--amber);background:#fffaf0}.red{border-left-color:var(--red);background:#fff5f5}.green{border-left-color:var(--green);background:#f3fbf6}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.kpi{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px}.kpi strong{display:block;font-size:24px;color:var(--navy)}.kpi span{font-size:12px;color:var(--muted)}
-.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}th{background:#eef4f8;color:var(--navy);text-align:left;font-weight:900}tr:last-child td{border-bottom:0}
-.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.check{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.check b{color:var(--navy)}
-.badge{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:900}.normal{background:#edf8f1;color:var(--green)}.improve{background:#fff5df;color:#98600a}.immediate{background:#fff0ee;color:var(--red)}
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:12px}.flow div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-size:12px;font-weight:800;color:var(--navy)}
-.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.role{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.role h3{margin:0 0 7px}.role p{font-size:12px;color:var(--muted);margin:0}
-.timeline{display:grid;grid-template-columns:1fr 80px 1fr;gap:12px;align-items:stretch}.phase{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.arrow{display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:900;font-size:24px}
-ul{margin:8px 0 0;padding-left:20px}li{margin:5px 0}.footer{margin-top:28px;color:var(--muted);font-size:12px}
-@media(max-width:800px){.grid4,.check-grid,.role-grid{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr 1fr}.timeline{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.hero h1{font-size:27px}}
-@media(max-width:520px){.grid4,.check-grid,.role-grid,.flow{grid-template-columns:1fr}.wrap{padding:0 12px 40px;margin-top:14px}.hero{padding:20px}.hero h1{font-size:24px}.card{padding:13px}}
-@media print{@page{size:A4;margin:12mm}body{background:#fff}.sticky{display:none!important}.wrap{max-width:none;margin:0;padding:0}.hero{box-shadow:none;border-radius:0;padding:16px}.card,.check,.role,.phase,.table-wrap{box-shadow:none;break-inside:avoid}table{min-width:0}}
-
-.start-banner{margin:16px 0 0;background:#fff;color:var(--navy);border-radius:14px;padding:14px 16px}
-.start-banner strong{font-size:18px}.start-banner span{display:block;color:#566879;font-size:12px;margin-top:3px}
-.week1-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:13px 0}
-.week1-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;position:relative}
-.week1-card .date{font-size:11px;color:var(--muted);font-weight:800}
-.week1-card .store{font-size:18px;font-weight:900;color:var(--navy);margin:4px 0}
-.week1-card .day{display:inline-block;font-size:12px;font-weight:900;padding:4px 8px;border-radius:999px;background:#eef5fb;color:var(--blue)}
-.week1-card.wed{border:2px solid #e0a33b;background:#fffaf0}
-.week1-card.wed:after{content:'대체휴무 필요';position:absolute;right:10px;top:10px;font-size:9px;font-weight:900;color:#98600a}
-.schedule-mobile{display:none}
-@media(max-width:650px){
- .week1-cards{grid-template-columns:1fr 1fr}
- .schedule-desktop{display:none}
- .schedule-mobile{display:block}
- .sched-week{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;margin:9px 0}
- .sched-week h3{margin:0 0 8px;font-size:15px}
- .sched-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid #edf1f4;font-size:12px}
- .sched-row:first-of-type{border-top:0}
- .sched-row b{color:var(--navy)}
-}
-
+:root{--navy:#17324d;--blue:#2f6f9f;--bg:#f4f7f9;--line:#dce5eb;--text:#1f2937;--muted:#667085;--green:#2f855a;--amber:#a66b10;--red:#b42318}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.58}
+.top{position:sticky;top:0;z-index:50;background:#17324df8;color:#fff;box-shadow:0 2px 12px #0002}.nav{max-width:1160px;margin:auto;padding:9px 13px;display:flex;gap:7px;align-items:center;overflow:auto}.brand{font-weight:900;margin-right:auto;white-space:nowrap}.nav a,.nav button{color:#fff;text-decoration:none;background:#ffffff14;border:0;border-radius:8px;padding:8px 9px;font-size:11px;font-weight:800;white-space:nowrap}.nav button{background:#fff;color:var(--navy)}
+.wrap{max-width:1160px;margin:20px auto;padding:0 14px 50px}.hero{background:linear-gradient(135deg,#17324d,#265579);color:#fff;border-radius:18px;padding:28px;box-shadow:0 12px 30px #17324d28}.hero h1{font-size:31px;line-height:1.18;margin:5px 0 8px}.hero p{margin:0;color:#dbe7f0}.eyebrow{font-size:11px;font-weight:900;letter-spacing:.12em;color:#c7d9e6}.pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.pill{background:#ffffff18;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:900}
+section{margin-top:24px}h2{font-size:22px;color:var(--navy);margin:0 0 10px}h3{font-size:17px;color:var(--navy);margin:18px 0 8px}.lead{color:var(--muted);margin:0 0 11px}
+.card,.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:10px 0;box-shadow:0 2px 8px #17324d09}.callout{border-left:5px solid var(--blue);background:#f8fbfd}.green{border-left-color:var(--green);background:#f4fbf6}.amber{border-left-color:#d59a37;background:#fffaf1}.red{border-left-color:var(--red);background:#fff5f4}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin:14px 0}.kpi{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px}.kpi strong{display:block;font-size:24px;color:var(--navy)}.kpi span{font-size:11px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.table{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:760px}th,td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:12px}th{background:#eef4f8;color:var(--navy);font-weight:900}
+.badge{display:inline-block;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:900}.open{background:#eef5fb;color:#255f89}.close{background:#f0edfb;color:#5c43a0}.good{background:#edf8f1;color:var(--green)}.warn{background:#fff5df;color:#98600a}.urgent{background:#fff0ee;color:var(--red)}
+.flow{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin:12px 0}.flow div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 8px;text-align:center;color:var(--navy);font-weight:900;font-size:11px}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f1f4f6;border-radius:5px;padding:1px 5px;font-size:11px}.phase{display:grid;grid-template-columns:1fr 60px 1fr;gap:12px}.arrow{display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--navy);font-weight:900}
+ul{margin:8px 0 0;padding-left:20px}li{margin:4px 0}.footer{margin-top:28px;color:var(--muted);font-size:11px}
+@media(max-width:800px){.grid4{grid-template-columns:1fr 1fr}.three{grid-template-columns:1fr 1fr}.flow{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:650px){.wrap{padding:0 10px 38px;margin-top:12px}.hero{padding:20px}.hero h1{font-size:24px}.two,.three,.phase{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}.flow{grid-template-columns:1fr 1fr}.grid4{grid-template-columns:1fr 1fr}h2{font-size:20px}}
+@media print{@page{size:A4;margin:11mm}body{background:#fff}.top{display:none}.wrap{max-width:none;margin:0;padding:0}.hero{box-shadow:none;border-radius:0;padding:16px}.card,.box,.kpi,.table{break-inside:avoid;box-shadow:none}table{min-width:0}}
 </style>
 </head>
 <body>
+<div class="top"><div class="nav"><div class="brand">HANNAM • Store Operations Check-up</div><a href="#concept">개념</a><a href="#rotation">7주</a><a href="#checklist">체크리스트</a><a href="#workflow">워크플로우</a><a href="#security">권한</a><a href="#dashboard">대시보드</a><a href="#after">7주 이후</a><button onclick="window.print()">인쇄 / PDF</button></div></div>
+<main class="wrap">
+<header class="hero">
+<div class="eyebrow">PILOT PROGRAM · OPENING + CLOSING</div>
+<h1>점장 오픈·마감 운영 체크업 파일럿 프로그램</h1>
+<p>점장님 자체를 평가하는 프로그램이 아니라, 점장님이 오픈·마감 시간대를 직접 체험하면서 해당 시간대 직원 운영과 매장 상태를 확인하고 향후 관리기준을 정립하기 위한 7주 체험형 파일럿임.</p>
+<div class="pills"><span class="pill">Opening Check-up</span><span class="pill">Closing Check-up</span><span class="pill">7주 Dual Rotation</span><span class="pill">직원·매장 운영 확인</span><span class="pill">Follow-up 연계</span></div>
+</header>
 
-<div class="sticky">
-  <div class="nav">
-    <div class="brand">HANNAM • Closing Audit 운영안</div>
-    <a href="#purpose">목적</a>
-    <a href="#start">시작일정</a><a href="#phase1">1차 7주</a>
-    <a href="#check">점검기준</a>
-    <a href="#report">보고</a>
-    <a href="#phase2">7주 이후</a>
-    <a href="#roles">역할</a>
-    <a href="#analysis">관리·분석</a>
-    <button onclick="window.print()">인쇄 / PDF</button>
-  </div>
-</div>
+<section id="concept"><h2>1. 운영 개념 및 핵심 방향</h2>
+<div class="card callout"><b>핵심은 “점장 체크업”이 아님.</b><br>점장님이 직접 오픈과 마감 시간대를 체험하면서 <b>오픈 직원 / 마감 직원의 실제 운영상태와 매장 준비·정리 수준을 확인</b>하는 프로그램임. 최초 7주는 점장님이 직접 경험하면서 기준을 세우는 파일럿 기간이며, 이후에는 지정 직원이 정기 체크업을 수행하고 점장님은 자기 지점 관리자로 전환함.</div>
+<div class="two">
+<div class="box"><h3><span class="badge open">OPENING</span> 오픈 체크업</h3><ul><li>마켓 오픈시간은 <b>오전 8:30</b>임</li><li>오픈 직전·직후 고객을 받을 준비상태 확인</li><li>조근인력, POS, 신선식품, 청결, 설비, 진열상태 확인</li><li>전날 마감의 미해결 사항이 실제 해결됐는지 확인</li></ul></div>
+<div class="box"><h3><span class="badge close">CLOSING</span> 마감 체크업</h3><ul><li>저녁 피크부터 실제 Closing까지 운영 확인</li><li>마감 인력배치, 고객응대, 잔여재고, 폐기·보관, 도난·Safety 확인</li><li>다음날 Open 가능한 상태인지 확인</li><li>미해결 사항은 다음 Opening으로 연결</li></ul></div>
+</div></section>
 
-<div class="wrap">
-  <div class="hero">
-    <h1>점장 마감근무 및 Closing Audit 운영 정책</h1>
-    <p>1차 7주간 점장님이 직접 현장을 진단하고, 이후에는 직원 정기 Audit + 지점장 관리자 체계로 전환하는 운영안</p>
-    <div class="pills">
-      <span class="pill">1차 7주: 점장 직접 Audit</span>
-      <span class="pill">2차: 직원 정기 Audit</span>
-      <span class="pill">지점장: 지점 관리자</span>
-      <span class="pill">본사: 전 지점 통합관리</span>
-    </div>
-  </div>
+<section id="rotation"><h2>2. 7주 Dual Rotation</h2>
+<div class="grid4"><div class="kpi"><strong>7주</strong><span>파일럿 기간</span></div><div class="kpi"><strong>주 2회</strong><span>Opening 1 + Closing 1</span></div><div class="kpi"><strong>14회</strong><span>점장 1인당 체험</span></div><div class="kpi"><strong>84개</strong><span>Schedule 레코드</span></div></div>
+<div class="card green">오픈과 마감 사이에 <b>3일 오프셋</b>을 두어 같은 날 겹치지 않도록 설계함. 7주가 끝나면 각 점장님은 <b>Opening 월~일 1회씩 + Closing 월~일 1회씩</b> 모두 경험함.</div>
 
-  <section id="purpose">
-    <h2>1. 운영 목적</h2>
-    <div class="card callout">
-      점장님들이 평소 주간근무 위주로 관리하면서 직접 확인하기 어려운 <b>저녁 피크시간부터 실제 Closing까지의 매장 운영상태를 직접 확인</b>하고,
-      고객서비스·인력운영·상품관리·위생·시설·Safety·Closing 과정에서 발생하는 문제를 발견하여 개선하기 위한 운영안임.
-    </div>
-    <div class="card green">
-      운영의 핵심은 <b>직원 개인을 평가하는 것이 아니라 “매장 운영 프로세스”를 점검하는 것</b>임.
-      현장의 문제를 찾고 개선하며, 장기적으로 전 지점의 마감 운영수준을 표준화하는 데 목적이 있음.
-    </div>
-  </section>
+<h3>점포별 로테이션 시작요일</h3>
+<div class="table"><table><thead><tr><th>점포</th><th>Opening 시작요일</th><th>1주차 Closing</th></tr></thead><tbody>
+<tr><td><b>Burnaby</b></td><td>월요일</td><td>목요일</td></tr><tr><td><b>Surrey</b></td><td>화요일</td><td>금요일</td></tr>
+<tr><td><b>Langley</b></td><td>수요일</td><td>토요일</td></tr><tr><td><b>Metrotown</b></td><td>목요일</td><td>일요일</td></tr>
+<tr><td><b>Robson</b></td><td>금요일</td><td>월요일</td></tr><tr><td><b>Yaletown</b></td><td>토요일</td><td>화요일</td></tr>
+</tbody></table></div>
 
-  
-<section id="start">
-  <h2>2. 다음 주부터 실제 운영 시작</h2>
-  <div class="card callout">
-    <b>1차 Closing Audit은 2026년 8월 17일(월)부터 시작</b>함.
-    첫 7주는 각 점장님이 월~일을 한 번씩 경험하도록 순환하며,
-    <b>수요일 Audit이 배정된 경우에는 해당 주 다른 날을 대체휴무</b>로 지정함.
-  </div>
+<h3>날짜 계산 로직</h3>
+<div class="card"><b>Opening</b> = <span class="code">시작요일 + (주차 - 1)</span><br><b>Closing</b> = <span class="code">시작요일 + 3일 + (주차 - 1)</span><br>7로 나눈 나머지로 순환함. <span class="code">CLOSING_ROTATION_OFFSET = 3</span></div>
+<div class="card amber"><b>수요일 운영:</b> 기존 수요일 휴무를 원칙으로 하되, 파일럿 중 수요일 Opening 또는 Closing이 배정된 주에는 같은 주 다른 날을 대체휴무로 조정함.</div>
 
-  <div class="start-banner">
-    <strong>1주차 · 8월 17일(월) ~ 8월 23일(일)</strong>
-    <span>각 지점장님은 아래 지정요일에 오후~Closing Shift로 근무함.</span>
-  </div>
+<h3>Burnaby 예시</h3>
+<div class="table"><table><thead><tr><th>주차</th><th>Opening</th><th>Closing</th></tr></thead><tbody>
+<tr><td>1주차</td><td>월</td><td>목</td></tr><tr><td>2주차</td><td>화</td><td>금</td></tr><tr><td>3주차</td><td>수</td><td>토</td></tr><tr><td>4주차</td><td>목</td><td>일</td></tr><tr><td>5주차</td><td>금</td><td>월</td></tr><tr><td>6주차</td><td>토</td><td>화</td></tr><tr><td>7주차</td><td>일</td><td>수</td></tr>
+</tbody></table></div>
 
-  <div class="week1-cards">
-    <div class="week1-card"><div class="date">8/17</div><div class="store">Burnaby</div><span class="day">월요일</span></div>
-    <div class="week1-card"><div class="date">8/18</div><div class="store">Surrey</div><span class="day">화요일</span></div>
-    <div class="week1-card wed"><div class="date">8/19</div><div class="store">Langley</div><span class="day">수요일</span></div>
-    <div class="week1-card"><div class="date">8/20</div><div class="store">Metrotown</div><span class="day">목요일</span></div>
-    <div class="week1-card"><div class="date">8/21</div><div class="store">Robson</div><span class="day">금요일</span></div>
-    <div class="week1-card"><div class="date">8/22</div><div class="store">Yaletown</div><span class="day">토요일</span></div>
-  </div>
-
-  <div class="card warn">
-    <b>1주차 일요일(8/23)</b>에는 지정 지점이 없음. 6개 지점을 7개 요일에 분산하는 구조이므로 매주 하루는 비어 있으며,
-    7주 전체 Cycle이 끝나면 각 지점장님은 월~일 모든 요일을 정확히 한 번씩 경험하게 됨.
-  </div>
-
-  <h3>7주 전체 실제 일정</h3>
-  <div class="table-wrap schedule-desktop">
-    <table>
-      <thead><tr><th>주차</th><th>기간</th><th>Burnaby</th><th>Surrey</th><th>Langley</th><th>Metrotown</th><th>Robson</th><th>Yaletown</th></tr></thead>
-      <tbody>
-        <tr><td><b>1주차</b></td><td>8/17~8/23</td><td>8/17 월</td><td>8/18 화</td><td><b>8/19 수</b></td><td>8/20 목</td><td>8/21 금</td><td>8/22 토</td></tr>
-        <tr><td><b>2주차</b></td><td>8/24~8/30</td><td>8/25 화</td><td><b>8/26 수</b></td><td>8/27 목</td><td>8/28 금</td><td>8/29 토</td><td>8/30 일</td></tr>
-        <tr><td><b>3주차</b></td><td>8/31~9/6</td><td><b>9/2 수</b></td><td>9/3 목</td><td>9/4 금</td><td>9/5 토</td><td>9/6 일</td><td>8/31 월</td></tr>
-        <tr><td><b>4주차</b></td><td>9/7~9/13</td><td>9/10 목</td><td>9/11 금</td><td>9/12 토</td><td>9/13 일</td><td>9/7 월</td><td>9/8 화</td></tr>
-        <tr><td><b>5주차</b></td><td>9/14~9/20</td><td>9/18 금</td><td>9/19 토</td><td>9/20 일</td><td>9/14 월</td><td>9/15 화</td><td><b>9/16 수</b></td></tr>
-        <tr><td><b>6주차</b></td><td>9/21~9/27</td><td>9/26 토</td><td>9/27 일</td><td>9/21 월</td><td>9/22 화</td><td><b>9/23 수</b></td><td>9/24 목</td></tr>
-        <tr><td><b>7주차</b></td><td>9/28~10/4</td><td>10/4 일</td><td>9/28 월</td><td>9/29 화</td><td><b>9/30 수</b></td><td>10/1 목</td><td>10/2 금</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="schedule-mobile">
-    <div class="sched-week"><h3>1주차 · 8/17~8/23</h3><div class="sched-row"><b>Burnaby</b><span>8/17 월</span></div><div class="sched-row"><b>Surrey</b><span>8/18 화</span></div><div class="sched-row"><b>Langley</b><span>8/19 수 · 대체휴무</span></div><div class="sched-row"><b>Metrotown</b><span>8/20 목</span></div><div class="sched-row"><b>Robson</b><span>8/21 금</span></div><div class="sched-row"><b>Yaletown</b><span>8/22 토</span></div></div>
-    <div class="sched-week"><h3>2주차 · 8/24~8/30</h3><div class="sched-row"><b>Burnaby</b><span>8/25 화</span></div><div class="sched-row"><b>Surrey</b><span>8/26 수 · 대체휴무</span></div><div class="sched-row"><b>Langley</b><span>8/27 목</span></div><div class="sched-row"><b>Metrotown</b><span>8/28 금</span></div><div class="sched-row"><b>Robson</b><span>8/29 토</span></div><div class="sched-row"><b>Yaletown</b><span>8/30 일</span></div></div>
-    <div class="sched-week"><h3>3주차 · 8/31~9/6</h3><div class="sched-row"><b>Burnaby</b><span>9/2 수 · 대체휴무</span></div><div class="sched-row"><b>Surrey</b><span>9/3 목</span></div><div class="sched-row"><b>Langley</b><span>9/4 금</span></div><div class="sched-row"><b>Metrotown</b><span>9/5 토</span></div><div class="sched-row"><b>Robson</b><span>9/6 일</span></div><div class="sched-row"><b>Yaletown</b><span>8/31 월</span></div></div>
-    <div class="sched-week"><h3>4주차 · 9/7~9/13</h3><div class="sched-row"><b>Burnaby</b><span>9/10 목</span></div><div class="sched-row"><b>Surrey</b><span>9/11 금</span></div><div class="sched-row"><b>Langley</b><span>9/12 토</span></div><div class="sched-row"><b>Metrotown</b><span>9/13 일</span></div><div class="sched-row"><b>Robson</b><span>9/7 월</span></div><div class="sched-row"><b>Yaletown</b><span>9/8 화</span></div></div>
-    <div class="sched-week"><h3>5주차 · 9/14~9/20</h3><div class="sched-row"><b>Burnaby</b><span>9/18 금</span></div><div class="sched-row"><b>Surrey</b><span>9/19 토</span></div><div class="sched-row"><b>Langley</b><span>9/20 일</span></div><div class="sched-row"><b>Metrotown</b><span>9/14 월</span></div><div class="sched-row"><b>Robson</b><span>9/15 화</span></div><div class="sched-row"><b>Yaletown</b><span>9/16 수 · 대체휴무</span></div></div>
-    <div class="sched-week"><h3>6주차 · 9/21~9/27</h3><div class="sched-row"><b>Burnaby</b><span>9/26 토</span></div><div class="sched-row"><b>Surrey</b><span>9/27 일</span></div><div class="sched-row"><b>Langley</b><span>9/21 월</span></div><div class="sched-row"><b>Metrotown</b><span>9/22 화</span></div><div class="sched-row"><b>Robson</b><span>9/23 수 · 대체휴무</span></div><div class="sched-row"><b>Yaletown</b><span>9/24 목</span></div></div>
-    <div class="sched-week"><h3>7주차 · 9/28~10/4</h3><div class="sched-row"><b>Burnaby</b><span>10/4 일</span></div><div class="sched-row"><b>Surrey</b><span>9/28 월</span></div><div class="sched-row"><b>Langley</b><span>9/29 화</span></div><div class="sched-row"><b>Metrotown</b><span>9/30 수 · 대체휴무</span></div><div class="sched-row"><b>Robson</b><span>10/1 목</span></div><div class="sched-row"><b>Yaletown</b><span>10/2 금</span></div></div>
-  </div>
+<h3>캘린더 계산</h3>
+<div class="card">현재 주의 월요일을 앵커로 두고 <span class="code">weekMonday = anchor + (주차 - 1) × 7일</span>을 계산한 뒤 해당 요일 인덱스를 더해 실제 날짜를 생성함. <span class="code">ManagerRotationCalendar.jsx</span>에서 주간 캘린더와 상세 일정에 동일 Schedule 데이터를 표시함.</div>
 </section>
 
-<section id="phase1">
-    <h2>3. 1차 운영 — 점장 직접 마감 Audit (7주)</h2>
-    <div class="grid4">
-      <div class="kpi"><strong>주 1회</strong><span>점장 마감근무</span></div>
-      <div class="kpi"><strong>7주</strong><span>1차 진단기간</span></div>
-      <div class="kpi"><strong>월~일</strong><span>전 요일 1회씩</span></div>
-      <div class="kpi"><strong>2PM~Close</strong><span>권장 Shift</span></div>
-    </div>
+<section><h2>3. Schedule 데이터 구조</h2>
+<div class="card">6개 점포 × 7주 × Opening/Closing 2교대 = <b>총 84개 레코드</b>로 구성함.</div>
+<div class="table"><table><thead><tr><th>필드</th><th>내용</th></tr></thead><tbody>
+<tr><td><span class="code">store</span></td><td>점포</td></tr><tr><td><span class="code">shift</span></td><td>opening / closing</td></tr><tr><td><span class="code">week_number</span></td><td>1~7주차</td></tr><tr><td><span class="code">day_of_week</span></td><td>배정요일</td></tr><tr><td><span class="code">scheduled_date</span></td><td>실제 날짜</td></tr><tr><td><span class="code">manager_user_id</span></td><td>담당 점장</td></tr><tr><td><span class="code">status</span></td><td>scheduled / completed / missed</td></tr>
+</tbody></table></div></section>
 
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>구분</th><th>실제 운영방법</th></tr></thead>
-        <tbody>
-          <tr><td><b>대상</b></td><td>Burnaby / Surrey / Langley / Metrotown / Robson / Yaletown 각 지점장님</td></tr>
-          <tr><td><b>빈도</b></td><td>주 1회 마감근무 및 운영 Audit 실시</td></tr>
-          <tr><td><b>1차 운영기간</b></td><td>7주간 월~일 전 요일을 각각 한 번씩 직접 경험</td></tr>
-          <tr><td><b>근무형태</b></td><td>오전근무 후 연장근무가 아니라 오후~Closing Shift로 근무시간 조정</td></tr>
-          <tr><td><b>수요일</b></td><td>기존 공통 휴무일이라도 Audit에서 제외하지 않음. 수요일 근무 시 같은 주 다른 날을 대체휴무로 운영</td></tr>
-          <tr><td><b>목적</b></td><td>지점장님이 직접 마감시간대 운영을 경험하고 향후 관리해야 할 기준과 실제 문제를 파악</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card warn">
-      1차 7주는 단순히 “점장님이 늦게까지 근무”하는 제도가 아니라, <b>향후 전사 Closing Audit 체계를 만들기 위한 진단기간</b>으로 운영함.
-    </div>
-  </section>
-
-  <section id="check">
-    <h2>4. 전 지점 공통 점검기준</h2>
-    <p class="lead">6개 지점 모두 동일한 기준으로 점검하여 지점별·요일별 비교가 가능하도록 함.</p>
-    <div class="check-grid">
-      <div class="check"><b>① 고객 운영</b><ul><li>고객응대 및 안내서비스</li><li>계산대 대기·Cashier 배치</li><li>카트·바구니·박스 등 고객동선 방해 여부</li></ul></div>
-      <div class="check"><b>② 상품 운영</b><ul><li>주요상품 결품·보충</li><li>진열·Facing 상태</li><li>가격표·POP 일치</li><li>신선상품 품질</li></ul></div>
-      <div class="check"><b>③ 인력 운영</b><ul><li>고객수·업무량 대비 인력 적정성</li><li>특정부서 업무집중 여부</li><li>과잉 또는 부족 인력 여부</li><li>부서 간 지원·협업</li></ul></div>
-      <div class="check"><b>④ 위생·온도</b><ul><li>매장·작업장 청결</li><li>냉장·냉동·Hot Holding</li><li>Temperature Log</li><li>폐기·보관상태</li></ul></div>
-      <div class="check"><b>⑤ 시설·Safety</b><ul><li>냉장고·냉동고·조명·문·Sink·장비</li><li>누수·파손·알람</li><li>통로적치·미끄럼 등 Safety</li><li>도난 취약구역 관리</li></ul></div>
-      <div class="check"><b>⑥ Closing</b><ul><li>Cash 및 계산대 마감</li><li>상품 보관</li><li>장비 종료·청소</li><li>문단속·보안</li><li>다음날 정상 Open 가능상태 확인</li></ul></div>
-    </div>
-
-    <h3>점검결과 구분</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>구분</th><th>판단기준</th><th>후속조치</th></tr></thead>
-        <tbody>
-          <tr><td><span class="badge normal">정상</span></td><td>운영기준에 맞게 정상 수행됨</td><td>확인 완료</td></tr>
-          <tr><td><span class="badge improve">개선필요</span></td><td>즉시 위험은 아니나 반복되거나 개선이 필요한 상태</td><td>원인·담당·Follow-up 관리</td></tr>
-          <tr><td><span class="badge immediate">즉시조치</span></td><td>안전·위생·온도·시설 등 당일 대응이 필요한 상태</td><td>현장에서 우선 조치 후 즉시 보고</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="report">
-    <h2>5. 점검 후 기록 및 Follow-up</h2>
-    <p class="lead">긴 별도 보고서보다는 현장에서 실제 관리할 수 있는 핵심사항만 기록함.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>기록항목</th><th>내용</th></tr></thead>
-        <tbody>
-          <tr><td><b>주요 발견사항</b></td><td>새롭게 확인한 문제 또는 좋은 운영사례</td></tr>
-          <tr><td><b>즉시 조치사항</b></td><td>현장에서 바로 개선한 사항</td></tr>
-          <tr><td><b>본사 지원 필요사항</b></td><td>시설·인력·HR·IT·디자인·Health 등 지원 요청</td></tr>
-          <tr><td><b>직원 의견</b></td><td>야간 직원의 애로사항 및 개선 아이디어</td></tr>
-          <tr><td><b>미완료 Follow-up</b></td><td>당일 해결되지 않아 담당자·기한 관리가 필요한 사항</td></tr>
-          <tr><td><b>사진</b></td><td>시설·청결·진열 등 필요한 사항은 사진으로 Before / After 관리</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section id="phase2">
-    <h2>6. 7주 이후 운영체계 전환</h2>
-    <div class="timeline">
-      <div class="phase">
-        <h3>1단계 · 최초 7주</h3>
-        <b>점장 직접 Audit</b>
-        <ul>
-          <li>주 1회 마감근무</li>
-          <li>월~일 모든 요일 직접 경험</li>
-          <li>현장문제·관리기준 파악</li>
-          <li>초기 운영 데이터 축적</li>
-        </ul>
-      </div>
-      <div class="arrow">→</div>
-      <div class="phase">
-        <h3>2단계 · 7주 이후</h3>
-        <b>직원 정기 Audit + 점장 관리자</b>
-        <ul>
-          <li>지정 직원이 정기 Audit 수행</li>
-          <li>점장님은 자기 지점 결과 관리</li>
-          <li>본사는 전 지점 통합관리</li>
-          <li>반복문제와 미완료 Follow-up 지속관리</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card callout">
-      7주 이후에는 점장님이 매번 직접 Audit을 수행하는 방식에서 벗어나,
-      <b>직원이 현장 Audit을 수행하고 점장님은 해당 지점의 관리자 역할</b>을 맡는 구조로 전환함.
-    </div>
-  </section>
-
-  <section id="roles">
-    <h2>7. 7주 이후 역할 분담</h2>
-    <div class="role-grid">
-      <div class="role">
-        <h3>본사 관리자</h3>
-        <p>전 6개 지점 결과, 반복문제, 즉시조치, 미완료 Follow-up을 통합 관리하고 지점별·요일별 비교를 진행함.</p>
-      </div>
-      <div class="role">
-        <h3>지점장님</h3>
-        <p>본인 지점의 관리자 역할을 맡아 Audit 제출현황, 개선필요, 즉시조치, 미완료 사항 및 후속조치 완료 여부를 관리함.</p>
-      </div>
-      <div class="role">
-        <h3>Audit 담당 직원</h3>
-        <p>정해진 공통 체크리스트에 따라 현장상태를 확인·기록하고 필요한 경우 메모·사진과 함께 제출함.</p>
-      </div>
-    </div>
-
-    <h3>직원 Audit 운영방식</h3>
-    <div class="card">
-      직원에게 관리자 권한을 부여하지 않고 <b>각 지점별 Audit Code</b>를 통해 점검을 수행하도록 운영함.
-      <div class="flow">
-        <div>지점 코드 입력</div>
-        <div>직원명 입력</div>
-        <div>공통 점검</div>
-        <div>메모·사진</div>
-        <div>제출</div>
-        <div>지점장 검토</div>
-      </div>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>지점</th><th>직원 입력 방식</th><th>지점장 권한</th></tr></thead>
-        <tbody>
-          <tr><td>Burnaby</td><td>Burnaby Audit Code 입력 후 점검</td><td>Burnaby 결과만 관리자모드에서 확인</td></tr>
-          <tr><td>Surrey</td><td>Surrey Audit Code 입력 후 점검</td><td>Surrey 결과만 관리자모드에서 확인</td></tr>
-          <tr><td>Langley</td><td>Langley Audit Code 입력 후 점검</td><td>Langley 결과만 관리자모드에서 확인</td></tr>
-          <tr><td>Metrotown</td><td>Metrotown Audit Code 입력 후 점검</td><td>Metrotown 결과만 관리자모드에서 확인</td></tr>
-          <tr><td>Robson</td><td>Robson Audit Code 입력 후 점검</td><td>Robson 결과만 관리자모드에서 확인</td></tr>
-          <tr><td>Yaletown</td><td>Yaletown Audit Code 입력 후 점검</td><td>Yaletown 결과만 관리자모드에서 확인</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card warn">
-      직원은 <b>Audit 수행자</b>이며 관리자 권한은 없음.
-      점장님은 자기 지점의 관리자이며, 다른 지점의 내부 Audit 내용은 볼 수 없도록 운영함.
-      본사만 전체 6개 지점을 통합 조회함.
-    </div>
-  </section>
-
-  <section id="analysis">
-    <h2>8. 관리 및 분석 방향</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>관리 관점</th><th>확인내용</th></tr></thead>
-        <tbody>
-          <tr><td><b>지점별</b></td><td>특정 지점에서 반복되는 개선필요·즉시조치 문제</td></tr>
-          <tr><td><b>요일별</b></td><td>월~일 중 특정 요일에 문제 발생이 집중되는지 확인</td></tr>
-          <tr><td><b>항목별</b></td><td>결품·인력배치·청결·온도·Closing 등 반복빈도 확인</td></tr>
-          <tr><td><b>Follow-up</b></td><td>담당자·기한·조치상태·완료 여부 관리</td></tr>
-          <tr><td><b>지점장 관리</b></td><td>자기 지점 Audit 현황·반복이슈·미완료 사항 확인</td></tr>
-          <tr><td><b>본사 관리</b></td><td>6개 지점 비교 및 전사 공통 운영문제 파악</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card red">
-      7주간의 1차 진단 이후에는 단순히 동일한 요일을 계속 순환하는 것이 아니라,
-      누적 결과를 바탕으로 <b>문제가 많이 발생하는 요일·시간대·운영항목에 Audit을 집중</b>하는 방식으로 발전시킴.
-    </div>
-  </section>
-
-  <section>
-    <h2>9. 최종 운영 방향</h2>
-    <div class="card green">
-      <b>점장 직접 진단 → 직원 정기 Audit → 지점장 관리 → 본사 통합관리</b>의 구조로 단계화함.
-      최초 7주는 점장님이 직접 현장을 경험하여 기준을 세우고,
-      이후에는 정기적인 Audit이 지점 운영의 일상적인 관리도구가 되도록 전환하여
-      <b>전 지점의 운영상태를 지속적으로 확인하고 표준화하는 체계</b>로 운영할 예정임.
-    </div>
-  </section>
-
-  <div class="footer">HANNAM SUPERMARKET · Closing Audit Operating Policy · Internal Use</div>
+<section id="checklist"><h2>4. 체크리스트 구성</h2>
+<div class="three">
+<div class="box"><h3>공통 13개</h3><p>고객응대, 진열, 가격·POP, 청결, 온도, 시설, Safety 등 Opening과 Closing 모두 확인하는 기본항목</p></div>
+<div class="box"><h3>Opening 전용 8개</h3><p>냉난비 가동, 개점 전 청결, 신선식품 진열, POS 부팅, 조근인력, 전날 Follow-up 등</p></div>
+<div class="box"><h3>Closing 전용 7개</h3><p>인력배치, 마감재고, 폐기·보관, 도난방지, 마감절차, 다음날 Open 준비 등</p></div>
 </div>
-</body>
-</html>
+<div class="card callout">시스템에서는 <span class="code">getChecklistForType(auditType)</span>로 Opening / Closing 유형에 맞는 항목만 자동 표시함. 각 항목은 <span class="badge good">정상</span> <span class="badge warn">개선필요</span> <span class="badge urgent">즉시조치</span>로 구분하고 메모·사진·조치내용을 남길 수 있음.</div></section>
+
+<section id="workflow"><h2>5. 체크업 워크플로우</h2>
+<div class="flow"><div>Schedule</div><div>캘린더</div><div>이메일 알림</div><div>점장 체크업</div><div>제출</div><div>관리자 검토</div><div>Follow-up</div></div>
+<div class="table"><table><thead><tr><th>상태</th><th>의미</th></tr></thead><tbody>
+<tr><td><span class="code">draft</span></td><td>임시저장, 점장 수정 가능</td></tr><tr><td><span class="code">submitted</span></td><td>제출 완료, 점장 수정 불가</td></tr><tr><td><span class="code">reviewed</span></td><td>관리자 검토 완료</td></tr><tr><td><span class="code">follow_up_required</span></td><td>후속조치 필요</td></tr><tr><td><span class="code">closed</span></td><td>종결</td></tr>
+</tbody></table></div>
+
+<h3>자동 이메일 알림</h3>
+<div class="two">
+<div class="box"><h3>Opening · 08:00</h3><p>Vancouver 기준 매일 08:00에 당일 Opening Schedule을 조회하고 담당 점장에게 시작 30분 전 알림 메일과 시작 링크를 발송함.</p></div>
+<div class="box"><h3>Closing · 13:30</h3><p>Vancouver 기준 매일 13:30에 당일 Closing Schedule을 조회하고 담당 점장에게 시작 30분 전 알림을 발송함.</p></div>
+</div></section>
+
+<section><h2>6. Follow-up 시스템</h2>
+<div class="card">체크업에서 <span class="badge warn">개선필요</span> 또는 <span class="badge urgent">즉시조치</span>가 있으면 FollowUp 레코드를 생성함.</div>
+<div class="table"><table><thead><tr><th>구분</th><th>운영</th></tr></thead><tbody>
+<tr><td>담당부서</td><td>Store, Facilities, HR, IT, T-Brothers 등 10개 부서</td></tr><tr><td>우선순위</td><td>Normal / High / Urgent</td></tr><tr><td>상태</td><td>Open → In Progress → Waiting → Completed</td></tr><tr><td>완료확인</td><td>완료 메모 + 필요 시 사진 첨부</td></tr>
+</tbody></table></div></section>
+
+<section id="security"><h2>7. 권한 및 RLS</h2>
+<div class="table"><table><thead><tr><th>엔티티</th><th>점장</th><th>본사 관리자</th></tr></thead><tbody>
+<tr><td>Check-up Record (Audit)</td><td>본인 점포 읽기/생성, draft만 수정</td><td>전체 권한</td></tr><tr><td>Schedule</td><td>본인 점포 읽기</td><td>전체 권한</td></tr><tr><td>FollowUp</td><td>본인 점포 읽기/생성/수정</td><td>전체 권한</td></tr>
+</tbody></table></div>
+<div class="card amber">점장 권한은 <span class="code">assigned_store</span> 또는 대체근무 중 <span class="code">temporary_store</span> 기준으로 제한함.</div></section>
+
+<section id="dashboard"><h2>8. 대시보드 및 관리 기능</h2>
+<div class="two">
+<div class="box"><h3>본사 관리자</h3><ul><li>제출 체크업 / 정상 / 개선 / 즉시조치 / 미완료 KPI</li><li>All / Opening / Closing 주간 Schedule</li><li>주간 완료율·이슈 빈도</li><li>점포별 비교·월간 요약</li><li>7주 성과 리포트·최근 체크업</li></ul></div>
+<div class="box"><h3>점장 Home / Schedule</h3><ul><li>오늘 / 다음 Opening·Closing 일정</li><li>최근 체크업·진행 중 Follow-up</li><li>7주 Rotation Calendar</li><li>주차별 상세일정</li><li>수요일 배정 주에만 대체휴무 안내</li></ul></div>
+</div></section>
+
+<section id="after"><h2>9. 7주 파일럿 이후 운영 전환</h2>
+<div class="phase">
+<div class="box"><h3>Phase 1 · 7주</h3><b>점장 직접 체험</b><ul><li>Opening 주 1회</li><li>Closing 주 1회</li><li>각 요일 모두 경험</li><li>오픈·마감 직원 운영 직접 확인</li><li>향후 관리기준 습득</li></ul></div>
+<div class="arrow">→</div>
+<div class="box"><h3>Phase 2 · 정규 운영</h3><b>직원 체크업 + 점장 관리자</b><ul><li>지정 직원이 지점코드로 Opening/Closing 체크업</li><li>직원은 현장 기록·사진·제출 수행</li><li>점장은 자기 지점 관리자모드로 현황·이슈·Follow-up 관리</li><li>본사는 6개 지점 통합관리</li></ul></div>
+</div>
+<div class="card green">장기 운영은 <b>Closing → 미해결 사항 → 다음 Opening 확인 → 점장 검토 → Follow-up → 본사 분석</b> 구조로 연결함. 즉 <b>OPEN → OPERATE → CLOSE → PREPARE → OPEN</b>의 연속 운영관리 Cycle을 구축함.</div></section>
+
+<section><h2>10. 전체 연결 구조</h2>
+<div class="flow"><div>Schedule</div><div>Calendar</div><div>Email</div><div>Opening/Closing</div><div>Review</div><div>Follow-up</div><div>Dashboard</div></div>
+<div class="card red"><b>이번 파일럿의 핵심:</b> 점장님을 체크하는 제도가 아니라, 점장님이 직접 오픈·마감 시간대를 경험하면서 직원 운영과 매장 상태를 확인하고, 향후 직원 체크업을 관리할 수 있는 기준과 경험을 확보하는 프로그램임.</div></section>
+
+<div class="footer">HANNAM SUPERMARKET · Store Operations Opening & Closing Check-up Pilot Program · Internal Use</div>
+</main>
+</body></html>
